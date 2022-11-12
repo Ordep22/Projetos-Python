@@ -1,0 +1,47 @@
+import cv2
+import sys
+from random import randint
+tracker = cv2.TrackerMIL_create()
+print(tracker)
+# inserir o endereço do vídeo
+video = cv2.VideoCapture('/Users/PedroVitorPereira/PycharmProjects/CursodePython/Base de Dados/IMG_0083.MOV')
+# leitura do primeiro frame do vídeo
+ok , frame = video.read()
+if not ok:
+  print('Não foi possível ler o arquivo do vídeo')
+  sys.exit()
+# Marcar com o mouse o objeto que deve ser rastreado: gera o boundingbox
+bbox = cv2.selectROI(frame,False)
+print(bbox)
+# Inicialização
+ok = tracker.init(frame,bbox)
+# Canal BGR: cor do boundingbox
+colors = [randint(0,255),randint(0,255),randint(0,255)]
+print(colors)
+# Percorrer o vídeo
+while True:
+  ok , frame = video.read()
+  if not ok:
+        break
+  timer = cv2.getTickCount()
+  ok , bbox = tracker.update(frame)
+  fps = cv2.getTickFrequency() / (cv2.getTickCount() - timer)
+  if ok:
+        (x,y,w,h) = [int(v) for v in bbox]
+        cv2.rectangle(frame, (x,y), (x+w,y+h), colors, 2, 1)
+  else:
+        cv2.putText(frame, 'Falha no carregamento', (100,80), cv2.FONT_HERSHEY_SCRIPT_SIMPLEX, .75, (0,0,255), 2)
+  cv2.imshow('Traking', frame)
+  if cv2.waitKey(1) & 0XFF == 27:
+        break
+
+
+
+
+
+
+
+
+
+
+

@@ -1,13 +1,16 @@
+import binascii
 from tkinter import *
-from typing import List, Any
 import serial.tools.list_ports
 import serial
 from tkinter import ttk, messagebox
 from tkinter import filedialog
 import CRC16_MODBUS
-from time import sleep
-
+import SERIAL
 import MONTA_PROTOCOLO
+import MONTA_PACOTE
+import DECODIFICA_SERIAL
+from time import sleep
+import time
 
 root = Tk()
 
@@ -23,17 +26,23 @@ class Application:
 
     ##Paryti
     # Valores de do bit de paridade
-    parity = ("Nenhuma", "Par", "Impar")
+    parity = (serial.PARITY_NONE, serial.PARITY_EVEN, serial.PARITY_ODD, serial.PARITY_MARK, serial.PARITY_SPACE)
 
     ##Stop bits
     # Valores dos bits de parada
-    Stop_bit = ("1", "2")
+    Stop_bit = (serial.STOPBITS_ONE, serial.STOPBITS_ONE_POINT_FIVE, serial.STOPBITS_TWO)
 
     data_bytes = (serial.FIVEBITS, serial.SIXBITS, serial.SEVENBITS, serial.EIGHTBITS)
 
     time_out = 0
 
     def __init__(self):
+        self.string_protocolo = None
+        self.buffer_crc = None
+        self.infoCaixatexto = None
+        self.info = None
+        self.buffer = None
+        self.buffer_pacote = None
         self.file = None
         self.tamanho = None
         self.protocolo = None
@@ -60,7 +69,10 @@ class Application:
         root.mainloop()
 
     def tela(self):
+
         self.root.title("Bootloader Módulo de Potência Ande 2023")
+        self.root.iconphoto(False, PhotoImage(
+            file=r"Lupa.png"))
         self.root.geometry("700x600+350+150")
         self.root.resizable(False, False)
 
@@ -80,7 +92,7 @@ class Application:
 
         # Menu de seleção de velocidade conexão
         # Texto seleção de velocidade de concção
-        label = Label(self.frame, text="Valocidade:", font=("Arial", 10), anchor=W, bg="#FFFFFF")
+        label = Label(self.frame, text="Velocidade:", font=("Arial", 10), anchor=W, bg="#FFFFFF")
         label.place(relx=0.16, rely=0.03, relwidth=0.1, relheight=0.09)
         # Caixa de seleção
         self.combobox_VEL = ttk.Combobox(self.frame, state="readonly", values=Application.velocidades)
@@ -128,6 +140,10 @@ class Application:
         BTN_Enviar = Button(self.frame, text='Enviar', font=("Arial", 10), command=self.enviar)
         BTN_Enviar.place(relx=0.64, rely=0.55, relwidth=0.15, relheight=0.2)
 
+        # Botão Limpara caixa de texto
+        BTN_Enviar = Button(self.frame, text='Lipar', font=("Arial", 10), command=self.limpar)
+        BTN_Enviar.place(relx=0.80, rely=0.55, relwidth=0.15, relheight=0.2)
+
         # Laybel Path arquivo .HEX
         self.Laybel_Path = Entry(self.frame, width=50, bg="#FFFFFF")
         self.Laybel_Path.place(relx=0.0, rely=0.55, relwidth=0.47, relheight=0.2)
@@ -135,6 +151,7 @@ class Application:
         # Caixa de texto Arquivo .HEX
         self.CAIXA_Texto = Text(self.root, width=90, height=10, bg="#FFFFFF")
         self.CAIXA_Texto.place(relx=0.01, rely=0.23, relwidth=0.98, relheight=0.70)
+        self.CAIXA_Texto.configure(state="disable")
 
     ###Talvez fosse interessante jogar para outro arquivo
     def porta_serial(self):
@@ -145,10 +162,6 @@ class Application:
     def obter_COM(self):
         # Conecta com portas seriais até COM99
         porta = self.combobox_COM.get()
-        #
-        # COM = porta[0:7].rstrip(" -")
-        #
-        # return COM
 
         COM = porta.strip(" ")
 
@@ -186,65 +199,91 @@ class Application:
         self.stopbits = self.obter_STOPBIT()
 
         while True:  # Loop para a conexão serial
+
             try:  # Tenta se conectar, se conseguir, o loop se encerra
 
-                if self.BTN_conectar['text'] == "Conectar":
-                    #
+                if self.BTN_conectar['text'] == "Conectar" and self.conexao != "" and self.velocidade != "":
+
                     # self.conexao = serial.Serial(self.porta, self.velocidade)
-                    self.conexao = serial.Serial('COM12', self.velocidade)
+                    # self.conexao = serial.Serial(self.porta, self.velocidade,self.databits,self.parity,self.stopbits)
+                    self.conexao = serial.Serial("COM4", 115200)
 
                     if self.conexao.is_open == TRUE:
                         self.BTN_conectar['text'] = "Desconectar"
-                    break
+                        break
 
-                if self.BTN_conectar['text'] == "Desconectar" and self.conexao.is_open == TRUE:
+                elif self.BTN_conectar['text'] == "Desconectar" and self.conexao.is_open == TRUE:
                     self.BTN_conectar['text'] = "Conectar"
                     self.conexao.close()
                     break
 
+                else:
+                    break
+
             except:
 
-                messagebox.showerror("Erro", "Erro de conexão")
+                messagebox.showerror("Atenção", "Não foi possível conectar")
                 break
 
-    '''
-    def ligar(self):
-
-        ligar = self.conexao.write('L'.encode())
-        print(ligar)  # Mostra a informação de que foi enviada ao micro
-        self.conexao.flush()
-
-    def desligar(self):
-
-        desligar = self.conexao.write('D'.encode())
-        print(desligar)  # Mostra a informação de que foi enviada ao micro
-        self.conexao.flush()    
-    '''
-
     def carrega_arquivo(self):
-        # Carregar o arquivo para o buffer
+
+        # Função responsável por carregar o arquivo
+
+        ##Carregar o arquivo para o buffer
+
+        # Limpa a caixa de texto de enderoço do arquivo
         self.Laybel_Path.delete("0", "end")
+
+        # Limpas as informações contidas na caixa de texto
         self.CAIXA_Texto.delete(1.0, "end")
+
+        # Obtem o endereço(path) do arqiovo
         self.Path_arquivo = filedialog.askopenfilename()
+
+        # Insere o enderço do arquivo na caixa de endereço do arquivo
         self.Laybel_Path.insert(0, self.Path_arquivo)
-        self.processar()
+
+        # Se o endereço do arquivo não for fazio irá verificar qual o formato do arquivo
+        if self.Path_arquivo != "":
+
+            if '.txt' in self.Path_arquivo:
+                self.processar()
+
+            elif '.TXT' in self.Path_arquivo:
+                self.processar()
+
+            elif '.hex' in self.Path_arquivo:
+                self.processar()
+
+            elif '.HEX' in self.Path_arquivo:
+                self.processar()
+
+            else:
+                messagebox.showerror("Erro", "Arquivo incompativel!")
+                self.Laybel_Path.delete("0", "end")
+
+        else:
+            messagebox.showwarning("Alerta", "Nenhum arquivo selecionado")
 
     def processar(self):
-        # Passa o arquivo para uma string buffer
+
+        # Função responsável por processar os dados carregados
 
         index = 0
-        j = 0
-        self.protocolo = []
-        self.cabecalho = 'LUPA'
-        self.comando = '0'
-        self.tamanho = ''
 
+        # Importanto os bibliotecas desenvolvidas
         crc16 = CRC16_MODBUS.crc16()
         protocolo = MONTA_PROTOCOLO.monta_protocolo()
+        pacote = MONTA_PACOTE.monta_pacote()
 
         self.buffer_crc = []
+        self.buffer_pacote = []
+        self.string_protocolo = []
+
         try:
             self.buffer = []
+
+            # Se o endereço do arquivo (path) for diferente de vazio o arquivo será aberto
             if self.Path_arquivo != "":
                 self.file = open(self.Path_arquivo, 'r')
 
@@ -252,15 +291,24 @@ class Application:
                     self.buffer.append(i.strip())
                     # print(self.buffer[index])
 
-                    # Monta o protocolo com as informações drecebidas do buffer
-                    item_e_protocolo = protocolo.Protocolo(self.buffer[index])
+                    # Monta o protocolo com as informações recebidas do buffer
+                    string_protocolo, array_protocolo = protocolo.Protocolo(self.buffer[index])
 
-                    # Recebe uma lista com o elemento em hexadecimal e seu respsctivo CRC
-                    item_e_CRC = crc16.Converte_ASCII_HEX(item_e_protocolo)
+                    # Calcula o CRC16_ModBus da sttring_protocolo('LUPA+TAMANHO+COMANDO+DADOS')
+                    selcitem_e_CRC = crc16.crc16(array_protocolo, 0, len(array_protocolo))
+
+                    self.string_protocolo.append(string_protocolo)
+
+                    # Monta o cacote completo de dados array_protocolo + CRC
+                    pacoteMontado = pacote.dados(array_protocolo, selcitem_e_CRC)
+
+                    # Adciona a um buffer cada linha do pacote
+                    self.buffer_pacote.append(pacoteMontado)
 
                     index += 1
 
-            self.file.flush()
+            self.file.close()
+
 
 
         except:
@@ -269,22 +317,49 @@ class Application:
 
     def enviar(self):
 
+        # Está enviando mesmo sem estra conectado - ajustar
+
+        decoficaPacote = DECODIFICA_SERIAL.decodifica_serial()
+
         # Sempre que entrar neste evento a caixa de texto será limpa
         self.CAIXA_Texto.delete(1.0, "end")
-        try:
-            for i in range(0, len(self.protocolo), 1):
-                self.conexao.write(self.protocolo[i].encode())
-                self.CAIXA_Texto.insert(END, self.protocolo[i])
-                self.CAIXA_Texto.insert(END, '\n\n')
-                print(self.protocolo[i])
-                # if i % maxBytesEnvio == 0:
-                #     self.conexao.flush()
 
-            self.conexao.flush()
+        # Vetor para comparação dos dados enviado e recebidos
+        try:
+
+            for i in range(0, len(self.buffer_pacote), 1):
+
+                stringDadoenviado = ""
+
+                for y in range(0, len(self.buffer_pacote[i]), 1):
+
+                    elemento_buffer_pacote = self.buffer_pacote[i][y]
+
+                    if y < (len(self.buffer_pacote[i]) - 3):
+                        self.escreveTextarea(self.string_protocolo[i][y])
+
+                    self.conexao.write(elemento_buffer_pacote)
+
+                try:
+                    # Lendo o que esta sendo enviado do STM32
+                    dadoLido = self.conexao.read()
+
+                    # Esse print não é necessario
+                    print(dadoLido)
+
+                    # Processando o que foi recebido
+
+
+
+                except:
+
+                    print('Nada chegou!')
+                    pass
+
+                self.escreveTextarea("\n")
 
         except:
-
-            messagebox.showwarning("Alerta", "Por favor conecte ao dispositivo!")
+            messagebox.showwarning("Alerta", "Nenhum dado a ser enviado!")
             pass
 
     def atuallizar(self):
@@ -296,7 +371,9 @@ class Application:
         self.combobox_DBITS.set('')
         self.combobox_PARADA.set('')
         self.Laybel_Path.delete("0", "end")
+        self.CAIXA_Texto.configure(state="normal")
         self.CAIXA_Texto.delete(1.0, "end")
+        self.CAIXA_Texto.configure(state="disable")
 
         try:
 
@@ -307,6 +384,34 @@ class Application:
             pass
 
         self.combobox_COM["values"] = self.porta_serial()
+
+    def limpar(self):
+
+        self.buffer_pacote = ""
+        self.CAIXA_Texto.configure(state="normal")
+        self.CAIXA_Texto.delete(1.0, "end")
+        self.CAIXA_Texto.configure(state="disabled")
+
+    def escreveTextarea(self, info):
+
+        info = str(info).strip("''b")
+
+        self.infoCaixatexto = info
+
+        self.CAIXA_Texto.configure(state="normal")
+
+        for i in range(0, len(self.infoCaixatexto), 1):
+            # print(info[i])
+
+            self.CAIXA_Texto.insert(END, f'{self.infoCaixatexto[i]}', )
+
+            self.CAIXA_Texto.update()
+
+            # sleep(0.000005)
+
+        # self.CAIXA_Texto.insert(END, f'\n\n')
+
+        self.CAIXA_Texto.configure(state="disabled")
 
 
 Application()

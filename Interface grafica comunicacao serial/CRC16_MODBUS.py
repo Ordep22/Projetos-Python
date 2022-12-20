@@ -1,5 +1,5 @@
 class crc16:
-    ##Tabela para calculo do CRC Hight
+    #Tabela para calculo do CRC high
 
     table_crc_hi = [
         0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0,
@@ -29,7 +29,7 @@ class crc16:
         0x00, 0xC1, 0x81, 0x40, 0x01, 0xC0, 0x80, 0x41, 0x01, 0xC0,
         0x80, 0x41, 0x00, 0xC1, 0x81, 0x40]
 
-    # Tabela para calculo CRC low
+    #Tabela para calculo CRC low
 
     table_crc_lo = [
         0x00, 0xC0, 0xC1, 0x01, 0xC3, 0x03, 0x02, 0xC2, 0xC6, 0x06,
@@ -63,35 +63,6 @@ class crc16:
         self.HEXA = None
         self.hexa = None
 
-    # def percorre_buffer(self, buffer):
-    #
-    #     for i in range(0, len(buffer), 1):
-    #         print(buffer[i])
-    #         self.Converte_ASCII_HEX(buffer[i])
-
-    def Converte_ASCII_HEX(self, ASCII):
-        self.HEXA = ""
-        self.item = ""
-
-        for i in range(0, len(ASCII), 1):
-            # Elemento recebido da string
-            elemento = ASCII[i]
-
-            # Buscando o elemento da tabela ASCII
-            elemento_ascii = ord(elemento)
-
-            # Tranformando o inteiro para hexadecimal
-            elemento_hex = hex(elemento_ascii).rstrip("L").lstrip("0x")
-
-            # Adiciona os elementos ao final da string
-            self.item += elemento_hex
-
-        self.HEXA = bytearray.fromhex(self.item)
-
-        saida = self.crc16(self.HEXA, 0, len(self.HEXA))
-
-        return [self.item, saida]
-
     def crc16(self, buffer, start, buffer_length):
         crc_hi = 0xFF
         crc_lo = 0xFF
@@ -100,15 +71,26 @@ class crc16:
             if buffer_length <= 0:
                 break
             buffer_length -= 1
+
+            '''
+            Realiza um OU exclusivo binário. Cada bit da saída é o mesmo ao bit correspondente em "x" se aquele bit em 
+            "y" for 0 e for o complemento do bit em x se o complemento daquele bit em "y" for 1. Exemplo:
+            14 ^ 9 # decimal 7 1110 ^ 1001 # binario 0111
+            '''
             i = crc_hi ^ buffer[bufferIndex]
+
             bufferIndex += 1
+
+            # Realiza um OU exclusivo binário
             crc_hi = crc_lo ^ crc16.table_crc_hi[i]
+
+            # Realiza um OU exclusivo binário
             crc_lo = crc16.table_crc_lo[i]
 
-        # saida = crc_hi << 8 | crc_lo
-        crc_lo = hex(crc_lo).lstrip("0x")
-        crc_hi = hex(crc_hi).lstrip("0x")
+        # Transforma CRC_LO e CRC_HI em Bytes com representação hexadecimais
+        #crc_lo = crc_lo.to_bytes(1, "little")
+        #crc_hi = crc_hi.to_bytes(1, "little")
 
-        saida = crc_lo + crc_hi
+        saida = [crc_hi, crc_lo]
 
         return saida

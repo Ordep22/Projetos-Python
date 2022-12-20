@@ -1,7 +1,7 @@
 import cv2
 import cv2 as cv  ## Importanto as images
 
-img = cv.imread(r'/Users/PedroVitorPereira/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/Projetos-Python/Visão Computacional/2_Detectação de Faces/Images/people1.jpg')
+img = cv.imread(r'people1.jpg')
 
 ##Em visão computacional é muito interessante reformatar o tamanho da imagem
 #Para isso podemos usar os comando resize

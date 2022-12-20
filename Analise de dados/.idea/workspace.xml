@@ -5,16 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff3c3998-5b6f-482c-927d-3d250612fccd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Analise de dados.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/markdown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap03/Exercicio_Loops_Condicionais.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Cap03/Funcoes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap03/Metodos.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cap03/Quiz.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cap04/Manipulacao_Arquivos.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cap04/arquivo_01.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cap04/salario.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/00.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/haarcascade_frontalface_default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Interface grafica comunicacao serial/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/CRC16_MODBUS 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/Ger_Exe 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/MONTA_PROTOCOLO 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/MPA23FILE 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/RB 2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/Teste 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/favicon 2.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/t 2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/t.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCC Engenharia - Visão Computacional/Vídeos Resende  - Bobinas Carga Geral/Vid_Bob  - Noturno.mov" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCC Engenharia - Visão Computacional/Vídeos Resende  - Bobinas Carga Geral/c-01-20200722-095244.mov" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TCC Engenharia - Visão Computacional/Vídeos Resende  - Bobinas Carga Geral/c-01-20200723-102440.mov" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,17 +52,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/Users/PedroVitorPereira/Documents/GitHub/Projetos-Python/Analise de dados",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/PedroVitorPereira/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/Projetos-Python/Analise de dados&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Python.Metodos">
+}</component>
+  <component name="RunManager" selected="Python.Manipulacao_Arquivos">
     <configuration name="Exercicio_Loops_Condicionais" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Analise de dados" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -64,6 +75,48 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Cap03/Exercicio_Loops_Condicionais.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Funcoes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Analise de dados" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Cap03" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Cap03/Funcoes.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Manipulacao_Arquivos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Analise de dados" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Cap04" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Cap04/Manipulacao_Arquivos.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -93,8 +146,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Quiz" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Analise de dados" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Cap03" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Cap03/Quiz.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Manipulacao_Arquivos" />
+        <item itemvalue="Python.Quiz" />
+        <item itemvalue="Python.Funcoes" />
         <item itemvalue="Python.Metodos" />
         <item itemvalue="Python.Exercicio_Loops_Condicionais" />
       </list>

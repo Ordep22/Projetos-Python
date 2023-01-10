@@ -5,37 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff3c3998-5b6f-482c-927d-3d250612fccd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Cap04/Antenas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/Data.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/Manipulando arquivos CSV.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/Manipulando arquivos Jason - Transferinfo arquivos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/Manipulando arquivos Jason.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/Manipulação de Arquivos TXT - with.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/Manipulação de Arquivos TXT.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/Modulos e pacotes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/RegistroAntenaFerro.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/RegistroAntenasFerroOrganizadaos.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/cientista.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/dados.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Cap04/numeros.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Deteccao de carros.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Deteccao de corpo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Deteccao de faces e olhos.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Deteccao de faces haarcascade  - scaleFactore.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Deteccao de faces haarcascade - minNeighbors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Deteccao de relogios.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Haarcascade/cars.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Haarcascade/clocks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Haarcascade/fullbody.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Haarcascade/haarcascade_eye.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Identificacao em tempo real.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Teste segmentacao de imagem.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cap04/Manipualando data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/.idea/Interface grafica comunicacao serial.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Interface grafica comunicacao serial/.idea/Interface grafica comunicacao serial.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Interface grafica comunicacao serial/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Interface grafica comunicacao serial/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Interface grafica comunicacao serial/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Detecao_de_faces_haarcascade.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Deteccao de faces haarcascade.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/haarcascade_frontalface_default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Haarcascade/haarcascade_frontalface_default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cap04/Modulos e pacotes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cap04/Modulos e pacotes.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +28,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2HSKEv7bJAUvKhrJIxhrav7z1Gm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -70,7 +44,28 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.Manipulando arquivos Jason - Transferinfo arquivos">
+  <component name="RunManager" selected="Python.Manipualando data">
+    <configuration name="Manipualando data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Analise de dados" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Cap04" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Cap04/Manipualando data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Manipulando arquivos CSV" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Analise de dados" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -134,7 +129,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Manipulação de Arquivos TXT - with" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Modulos e pacotes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Analise de dados" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -146,28 +141,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Cap04/Manipulação de Arquivos TXT - with.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Manipulação de Arquivos TXT" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Analise de dados" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Cap04" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Cap04/Manipulação de Arquivos TXT.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Cap04/Modulos e pacotes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -178,11 +152,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Manipualando data" />
+        <item itemvalue="Python.Modulos e pacotes" />
         <item itemvalue="Python.Manipulando arquivos Jason - Transferinfo arquivos" />
         <item itemvalue="Python.Manipulando arquivos Jason" />
         <item itemvalue="Python.Manipulando arquivos CSV" />
-        <item itemvalue="Python.Manipulação de Arquivos TXT - with" />
-        <item itemvalue="Python.Manipulação de Arquivos TXT" />
       </list>
     </recent_temporary>
   </component>

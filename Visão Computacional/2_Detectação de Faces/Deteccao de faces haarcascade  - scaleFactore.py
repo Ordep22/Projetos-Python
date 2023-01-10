@@ -1,4 +1,4 @@
-import cv2
+
 import cv2 as cv  ## Importanto as images
 
 img = cv.imread(r'/Users/PedroVitorPereira/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/Projetos-Python/Visão Computacional/2_Detectação de Faces/Images/people1.jpg')
@@ -13,17 +13,21 @@ img_escalacinza = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 
 #Informar para a biblioteca qual o local do arquivo que contem as informações
 #do algoritmo treinado
-#detectorFacial  = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
+detectorFacial  = cv.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 #Podemos também ajustar a identificação das faces por meio do parametro scalefactori
-#Esse parametro tem como mˆ
+#Esse parâmetro deve ser maior que um. Lembrando que quanto maior que menor será sua eficácia.
 
+deteccoes  = detectorFacial.detectMultiScale(img_escalacinza,scaleFactor= 1.35)
 
-
+'''
+Como é possível observar, o valor para o scaleFctor mais adequado à 
+este caso seia o 1.35. Pois, com esse valor é possível identificar as 
+cinco faces frontais. 
+'''
 
 #Detectando as faces a partir da imagem RGB gerda
-
-deteccoes  = detectorFacial.detectMultiScale(img_escalacinza)
+#deteccoes  = detectorFacial.detectMultiScale(img_escalacinza)
 
 #Laço que percorre toda a lisa de informações detectadas
 for x1, y1, x2, y2 in deteccoes:

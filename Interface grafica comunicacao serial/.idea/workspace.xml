@@ -5,16 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ea02912-f7b1-412d-9233-cd6b82a8dd2f" name="Changes" comment="Atualização da semana">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CRC16_MODBUS 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ger_Exe 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MONTA_PROTOCOLO 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MPA23FILE 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RB 2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Teste 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/favicon 2.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/t 2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/t.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Interface grafica comunicacao serial.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Interface grafica comunicacao serial.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Detecao_de_faces_haarcascade.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Visão Computacional/2_Detectação de Faces/Detecao_de_faces_haarcascade.py" afterDir="false" />
     </list>
     <list id="1609563f-a885-4b05-bc92-ef4508e56809" name="New changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,13 +27,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/PedroVitorPereira/Documents/GitHub/Projetos-Python/Interface grafica comunicacao serial&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/PedroVitorPereira/Library/Mobile Documents/com~apple~CloudDocs/Documents/GitHub/Projetos-Python/Interface grafica comunicacao serial"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
